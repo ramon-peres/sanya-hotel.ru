@@ -1491,6 +1491,141 @@ body.menu-open .mnav{transform:none;visibility:visible}
   :root:not([data-theme="light"]) .prod-vis svg,
   :root:not([data-theme="light"]) .inst-vis svg{mix-blend-mode:screen;opacity:.9}
 }
+
+/* ══════════ Мобильная версия: компактнее и удобнее ══════════ */
+.hdr-mob{display:none}
+@media(max-width:1180px){
+  .hdr-mob{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:0 0 10px;margin-top:-4px}
+  .hdr-mob-city{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;color:var(--text);
+    padding:7px 11px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--bg-2);min-height:38px}
+  .hdr-mob-city b{font-weight:600}
+  .hdr-mob-city .ico{width:16px;height:16px;color:var(--accent-2)}
+  .hdr-mob-city .car{width:11px;height:11px;stroke:currentColor;stroke-width:2.6;fill:none;opacity:.5}
+  .hdr-mob-tel{display:inline-flex;align-items:center;gap:7px;font-family:var(--ff-d);font-weight:700;
+    font-size:.95rem;color:var(--accent-2);min-height:38px;padding:0 4px}
+  .hdr-mob-tel .ico{width:16px;height:16px}
+}
+@media(max-width:560px){
+  .hdr-mob-tel span{font-size:.9rem}
+}
+
+@media(max-width:760px){
+  /* воздух между блоками меньше — экран короче, прокрутки меньше */
+  .sec{padding:clamp(26px,6vw,34px) 0}
+  .sec--tight{padding:22px 0}
+  .sec-head{margin-bottom:18px}
+  .eyebrow{margin-bottom:8px;font-size:.72rem}
+  .lead,.sec-head p{font-size:.98rem}
+  .grid{gap:12px}
+
+  /* первый экран без лишней высоты */
+  .hero-slide{padding:22px 0 18px}
+  .hero h1,.hero .hero-h{font-size:clamp(1.6rem,1.1rem + 2.4vw,2rem);margin-bottom:12px}
+  .hero-lead{margin-bottom:16px;font-size:.96rem}
+  .hero-price{margin:2px 0 16px;gap:2px 10px}
+  .hero-price b{font-size:2.3rem}
+  .hero-price em{font-size:.84rem}
+  .hero-facts{gap:8px;margin:14px 0 18px}
+  .hero-fact{min-width:0;flex:1 1 30%;padding:9px 12px}
+  .hero-fact b{font-size:.92rem}
+  .hero-vis{min-height:210px;margin-top:14px;margin-bottom:0}
+  .hero-dots{padding-bottom:16px}
+  .hero-dot{height:6px}
+  .hero-arrows{display:none}
+  .statbar{grid-template-columns:repeat(2,1fr);gap:14px;padding:18px 0 22px;margin-top:18px}
+  .statbar b{font-size:1.6rem}
+
+  /* карточки компактнее */
+  .card-body{padding:14px 15px 15px;gap:6px}
+  .card h3{font-size:1rem}
+  .card p{font-size:.86rem}
+  .card-foot{padding-top:10px;gap:9px}
+  .card-go{padding:10px 12px}
+  .adv{padding:18px;gap:14px}
+  .adv-ico{width:46px;height:46px}
+  .rev{padding:20px 18px}
+  .m2-card{padding:20px 18px}
+  .tier{padding:22px 20px}
+  .faq summary{padding:15px 16px;font-size:.96rem}
+  .faq-a{padding:0 16px 16px}
+  .geo-hero{padding:18px;gap:14px}
+  .geo-hero-facts{gap:6px 16px}
+  .btn{padding:13px 20px}
+  .btn--lg{padding:15px 24px;font-size:.96rem}
+
+  /* ничего мельче 12 px */
+  .price small,.price em,.prod-spec,.post-meta,.work-meta,.mate-role,.rev-who span,
+  .pmeta-i span,.m2-rooms span,.geo-city span{font-size:.76rem}
+}
+
+/* полоса cookie на телефоне — в одну компактную карточку */
+@media(max-width:760px){
+  .cookie{bottom:72px;padding:0 12px 10px}
+  .cookie-in{padding:12px 14px;gap:10px;border-radius:var(--r)}
+  .cookie-in p{font-size:.78rem;line-height:1.45;min-width:0;flex:1 1 100%}
+  .cookie-acts{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .cookie-acts .btn{width:100%;padding:11px 10px;font-size:.84rem}
+}
+
+/* окно выбора города на телефоне */
+@media(max-width:560px){
+  .city-modal{padding:12px;align-items:end}
+  .city-modal-in{padding:20px 18px 24px;max-height:80vh;border-radius:var(--r-xl)}
+  .city-modal h3{font-size:1.2rem}
+  .city-note{font-size:.8rem;margin-bottom:16px}
+  .city-pick{padding:11px 13px;min-height:44px;display:flex;align-items:center}
+  .city-pick b{font-size:.88rem;line-height:1.25}
+}
+
+/* кнопки пальцем: минимум 40 px по высоте */
+@media(max-width:900px){
+  .chip,.card-go,.geo-city,.geo-d,.geo-grid a,.crumbs a{min-height:40px;display:inline-flex;align-items:center}
+  .geo-city,.geo-d{display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+  .rev-more,.star-pick{min-height:40px}
+  .dock .btn{padding:13px 16px}
+}
+
+/* на телефоне действия уже есть в нижней панели — боковую прячем, кроме «наверх» */
+@media(max-width:900px){
+  .rail{top:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px));right:12px;transform:none;gap:8px}
+  .rail .rail-btn:not(.rail-btn--top){display:none}
+  .rail-btn--top{width:44px;height:44px;padding:0;justify-content:center}
+  .rail-btn>span{display:none}
+}
+
+@media(max-width:760px){
+  /* подвал: ссылки удобно нажимать, мелочь не мельче 11,5 px */
+  .ftr{padding-top:32px}
+  .ftr-grid{gap:18px 16px;padding-bottom:26px}
+  .ftr h4{margin-bottom:11px}
+  .ftr ul{gap:2px}
+  .ftr ul a{min-height:38px;display:inline-flex;align-items:center;font-size:.9rem}
+  .ftr-ct a{min-height:40px}
+  .ftr-about{margin:12px 0 14px}
+  .pay i{font-size:.72rem;padding:6px 10px}
+  .ftr-legal{font-size:.76rem;padding-bottom:20px}
+  .ftr-bot{padding:16px 0 22px;gap:10px;font-size:.78rem}
+  .ftr-bot a{min-height:34px;display:inline-flex;align-items:center}
+  /* подписи у скидок в калькуляторе */
+  .opt small,.opt--promo small{font-size:.72rem}
+  .calc2-row>label{font-size:.9rem}
+}
+
+@media(max-width:900px){
+  /* точки слайдера: вид прежний, область нажатия 40 px */
+  .hero-dots{gap:4px}
+  .hero-dot{height:6px;padding:17px 0;background-clip:content-box;box-sizing:content-box}
+}
+
+@media(max-width:760px){
+  /* фотографии ниже — страница короче, карточек видно больше */
+  .card-vis{aspect-ratio:16/10}
+  .post-vis{aspect-ratio:16/9}
+  .work{aspect-ratio:4/3}
+  .vis-box,.phead-vis{aspect-ratio:16/10}
+  .prod-vis{aspect-ratio:4/3}
+}
 </style>
 
 <div class="topbar"><div class="wrap">
@@ -1526,6 +1661,7 @@ body.menu-open .mnav{transform:none;visibility:visible}
         </div>
       </div>
     </div>
+      <div class="hdr-mob"><button class="hdr-mob-city" data-city-open type="button"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11"/><circle cx="12" cy="10" r="2.6"/></svg><b data-city-name>Пермь</b><svg class="car" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><a class="hdr-mob-tel" href="tel:+73422862499" data-city-tel><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-3 2a13 13 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><span data-city-phone>+7 (342) 286-24-99</span></a></div>
   </div>
   <div class="navbar"><div class="wrap"><ul class="nav"><li><a class="nav-link" href="#vidy" data-nav>Потолки<svg class="car" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></a><div class="mega"><div class="mega-in"><a class="mega-card" href="#vidy-besshovnye"><div class="mega-vis"><img class="viz" data-ph="besshovnye" alt="" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><div class="mega-txt"><b>Бесшовные потолки</b><span>от 189 ₽/м²</span><i>Полотно шириной до 5 м — цельный потолок без единого шва в любой комнате.</i></div></a><a class="mega-card" href="#vidy-dvuhurovnevye"><div class="mega-vis"><img class="viz" data-ph="dvuhurovnevye" alt="" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><div class="mega-txt"><b>Двухуровневые потолки</b><span>от 840 ₽/м²</span><i>Короб и второй уровень — зонирование кухни-гостиной и скрытая подсветка.</i></div></a><a class="mega-card" href="#vidy-paryashchie"><div class="mega-vis"><img class="viz" data-ph="paryashchie" alt="" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><div class="mega-txt"><b>Парящие потолки</b><span>от 1480 ₽/м²</span><i>Светящийся контур по периметру — потолок будто отделён от стен.</i></div></a><a class="mega-card" href="#vidy-krivolineynye"><div class="mega-vis"><img class="viz" data-ph="krivolineynye" alt="" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><div class="mega-txt"><b>Криволинейные потолки</b><span>от 660 ₽/м²</span><i>Волна, дуга и радиус — плавная геометрия вместо прямых углов.</i></div></a><a class="mega-card" href="#vidy-s-podsvetkoy"><div class="mega-vis"><img class="viz" data-ph="s-podsvetkoy" alt="" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"></div><div class="mega-txt"><b>Потолки с подсветкой</b><span>от 1120 ₽/м²</span><i>Контурная, скрытая и заливная подсветка — свет как часть отделки.</i></div></a><a class="mega-card" href="#vidy-svetovye-linii"><div class="mega-vis"><svg class="viz" viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Визуализация потолка" focusable="false"><defs>
 <linearGradient id="wfa93c7" x1="0" y1="0" x2="0" y2="1">
